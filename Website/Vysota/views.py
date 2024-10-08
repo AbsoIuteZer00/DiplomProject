@@ -6,6 +6,7 @@ from .forms import CompanyRegister
 
 
 def main(request):
+    """Get-запрос на главную страницу"""
     title = 'ООО "ПО "Высота"'
     heading = 'Главная страница'
     context = {
@@ -16,6 +17,7 @@ def main(request):
 
 
 def catalog(request):
+    """Get-запрос на страницу каталога"""
     title = 'ООО "ПО "Высота"'
     heading = 'Каталог'
     context = {
@@ -26,6 +28,7 @@ def catalog(request):
 
 
 def contacts(request):
+    """Get-запрос на страницу контактной информации"""
     title = 'ООО "ПО "Высота"'
     heading = 'Контакты'
     context = {
@@ -36,6 +39,7 @@ def contacts(request):
 
 
 def description(request):
+    """Get-запрос на страницу информации об организации"""
     title = 'ООО "ПО "Высота"'
     heading = 'О нас'
     context = {
@@ -46,6 +50,7 @@ def description(request):
 
 
 def company_view(request):
+    """Post-запрос на страницу опросного листа"""
     if request.method == 'POST':
         form = CompanyRegister(request.POST)
         if form.is_valid():
