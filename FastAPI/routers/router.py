@@ -13,6 +13,7 @@ templates = Jinja2Templates(directory='templates')
 
 @router.get('/main')
 async def main_page(request: Request):
+    """Get-запрос главной страницы"""
     title = 'ООО "ПО "Высота"'
     heading = 'Главная страница'
     context = {
@@ -25,6 +26,7 @@ async def main_page(request: Request):
 
 @router.get('/main/catalog')
 async def catalog_page(request: Request):
+    """Get-запрос страницы каталога"""
     title = 'ООО "ПО "Высота"'
     heading = 'Каталог'
     context = {
@@ -37,6 +39,7 @@ async def catalog_page(request: Request):
 
 @router.get('/main/contacts')
 async def contacts_page(request: Request):
+    """Get-запрос страницы с контактной ифнормацией"""
     title = 'ООО "ПО "Высота"'
     heading = 'Контакты'
     context = {
@@ -49,6 +52,7 @@ async def contacts_page(request: Request):
 
 @router.get('/main/description')
 async def description_page(request: Request):
+    """Get-запрос страницы с информацией об организации"""
     title = 'ООО "ПО "Высота"'
     heading = 'О нас'
     context = {
@@ -61,6 +65,7 @@ async def description_page(request: Request):
 
 @router.get('/main/catalog/company_form')
 async def company_create_page(request: Request):
+    """Get-запрос страницы с формой опросного листа"""
     title = 'ООО "ПО "Высота"'
     heading = 'Опросный лист'
     context = {
@@ -80,6 +85,7 @@ async def company_create(request: Request,
                          phone: str = Form(),
                          address: str = Form(),
                          description: str = Form()):
+    """Post-запрос страницы с формой опросного листа"""
     db.execute(insert(Company).values(company=company,
                                       name=name,
                                       email=email,
@@ -92,6 +98,7 @@ async def company_create(request: Request,
 
 @router.put('/update')
 async def company_update(db: Annotated[Session, Depends(get_db)], company_id: int, company_update: CompanyUpdate):
+    """Put-запрос обновления данных Заказчиков в базе данных"""
     company = db.scalar(select(Company).where(Company.id == company_id))
     if company is None:
         raise HTTPException(
@@ -114,6 +121,7 @@ async def company_update(db: Annotated[Session, Depends(get_db)], company_id: in
 
 @router.delete('/delete')
 async def company_delete(db: Annotated[Session, Depends(get_db)], company_id: int):
+    """Delete-запрос удаления данных Заказчиков из базы данных"""
     company = db.scalar(select(Company).where(Company.id == company_id))
     if company is None:
         raise HTTPException(
