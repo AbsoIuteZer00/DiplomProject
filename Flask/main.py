@@ -11,6 +11,7 @@ db.init_app(app)
 
 @app.route('/main', methods=['GET'])
 def main_page():
+    """Get-запрос главной страницы"""
     title = 'ООО "ПО "Высота"'
     heading = 'Главная страница'
     return render_template('main.html', title=title, heading=heading)
@@ -18,6 +19,7 @@ def main_page():
 
 @app.route('/main/catalog', methods=['GET'])
 def catalog_page():
+    """Get-запрос страницы каталога"""
     title = 'ООО "ПО "Высота"'
     heading = 'Каталог'
     return render_template('catalog.html', title=title, heading=heading)
@@ -25,6 +27,7 @@ def catalog_page():
 
 @app.route('/main/contacts', methods=['GET'])
 def contacts_page():
+    """Get-запрос страницы с контактной информацией"""
     title = 'ООО "ПО "Высота"'
     heading = 'Контакты'
     return render_template('contacts.html', title=title, heading=heading)
@@ -32,6 +35,7 @@ def contacts_page():
 
 @app.route('/main/description', methods=['GET'])
 def description_page():
+    """Get-запрос страницы информации об организации"""
     title = 'ООО "ПО "Высота"'
     heading = 'О нас'
     return render_template('description.html', title=title, heading=heading)
@@ -39,6 +43,7 @@ def description_page():
 
 @app.route('/main/catalog/company_form', methods=['GET', 'POST'])
 def company_create_page():
+    """Get/Post-запрос страницы с формой опросного листа"""
     if request.method == 'GET':
         title = 'ООО "ПО "Высота"'
         heading = 'Опросный лист'
