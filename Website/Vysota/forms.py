@@ -3,6 +3,7 @@ from .models import Company
 
 
 class CompanyRegister(ModelForm):
+    """Класс определения названий в админ-панели"""
     class Meta:
         model = Company
         fields = '__all__'
