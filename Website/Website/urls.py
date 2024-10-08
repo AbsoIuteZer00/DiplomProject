@@ -20,10 +20,10 @@ from Vysota.views import *
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('main/', main),
-    path('main/catalog/', catalog),
-    path('main/description/', description),
-    path('main/contacts/', contacts),
-    path('main/catalog/company_form/', company_view, name='company_form'),
+    path('admin/', admin.site.urls),  # адрес админ-панели
+    path('main/', main),  # адрес главной страницы
+    path('main/catalog/', catalog),  # адрес каталога товаров
+    path('main/description/', description),  # адрес информации об организации
+    path('main/contacts/', contacts),  # адрес контактной информации
+    path('main/catalog/company_form/', company_view, name='company_form'),  # адрес формы опросного листа
 ]
